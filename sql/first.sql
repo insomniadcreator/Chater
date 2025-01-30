@@ -1,0 +1,1 @@
+SELECT id, user_id, message, created_at FROM messages;

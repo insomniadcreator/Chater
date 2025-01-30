@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/feedback.css"> <!-- Правильный путь -->
+    <title>Feedback Chat</title>
+</head>
+<body>
+    <!-- Меню сверху -->
+    <div class="menu">
+        <a href="/">Home</a>
+        <span>Welcome, {{.Username}}!</span> <!-- Отображаем имя пользователя -->
+        <a href="/logout">Logout</a>
+    </div>
+
+    <!-- Основной контейнер -->
+    <div class="main-container">
+        <!-- Контейнер для чата -->
+        <div class="chat-container">
+            <h1 class="chat-header">Feedback Chat</h1>
+
+            <!-- Сообщения -->
+            <div class="messages">
+                {{range .Messages}}
+                    <div class="message">
+                        <strong>{{.Username}}</strong> ({{.CreatedAt.Format "2006-01-02 15:04:05"}}):
+                        <p>{{.Message}}</p>
+                        {{if eq .UserID $.UserID}}
+                            <div class="message-actions">
+                                <form class="edit-form" method="GET" action="/edit-message/{{.ID}}">
+                                    <button type="submit" class="edit-button">Edit</button>
+                                </form>
+                                <form class="delete-form" method="POST" action="/delete-message">
+                                    <input type="hidden" name="message_id" value="{{.ID}}">
+                                    <button type="submit" class="delete-button">Delete</button>
+                                </form>
+                            </div>
+                        {{end}}
+                    </div>
+                {{end}}
+            </div>
+
+            <!-- Форма для отправки сообщений -->
+            <form class="message-form" method="POST" action="/submit-message">
+                <textarea name="message" placeholder="Write your message here..." required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+
+        <!-- Таблица пользователей -->
+        <div class="users-container">
+            <h2>Registered Users</h2>
+
+            <!-- Форма поиска -->
+            <form class="search-form" method="GET" action="/feedback">
+                <input type="text" name="search" placeholder="Search by username" value="{{.SearchQuery}}">
+                <button type="submit">Search</button>
+            </form>
+
+            <!-- Таблица пользователей -->
+            <table class="users-table">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{range .Users}}
+                        <tr>
+                            <td>{{.Username}}</td>
+                            <td>{{.Email}}</td>
+                        </tr>
+                    {{end}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

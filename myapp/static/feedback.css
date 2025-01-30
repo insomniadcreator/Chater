@@ -1,0 +1,333 @@
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.menu {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.menu a {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: #007bff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.menu a:hover {
+    background-color: #e9ecef;
+}
+
+.menu span {
+    font-size: 1rem;
+    color: #333333;
+    margin: 0 1rem;
+}
+
+/* Контейнер для чата */
+.chat-container {
+    width: 50%; /* 2/4 от ширины страницы */
+    max-width: 800px;
+    background-color: #ffffff;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок чата */
+.chat-header {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333333;
+    text-align: center;
+}
+
+/* Сообщения */
+.messages {
+    margin-bottom: 1rem;
+}
+
+.message {
+    margin-bottom: 1rem;
+}
+
+.message strong {
+    color: #007bff;
+}
+
+.message p {
+    margin: 0.5rem 0 0;
+    color: #333333;
+}
+
+/* Форма для отправки сообщений */
+.message-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.message-form textarea {
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    outline: none;
+    resize: none;
+}
+
+.message-form textarea:focus {
+    border-color: #007bff;
+}
+
+.message-form button {
+    padding: 0.75rem;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.message-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Кнопка удаления */
+.delete-form {
+    display: inline-block;
+    margin-left: 1rem;
+}
+
+.delete-button {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+    color: #ffffff;
+    background-color: #dc3545;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 600px) {
+    .menu {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .chat-container {
+        width: 90%;
+    }
+}
+
+/* Кнопки действий с сообщениями */
+.message-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.edit-form,
+.delete-form {
+    display: inline-block;
+}
+
+.edit-button,
+.delete-button {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.edit-button {
+    background-color: #28a745; /* Зелёный цвет для кнопки редактирования */
+}
+
+.edit-button:hover {
+    background-color: #218838;
+}
+
+.delete-button {
+    background-color: #dc3545; /* Красный цвет для кнопки удаления */
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+/* Основной контейнер */
+.main-container {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 1rem auto;
+}
+
+/* Контейнер для чата */
+.chat-container {
+    flex: 3;
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Контейнер для таблицы пользователей */
+.users-container {
+    flex: 1;
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.users-container h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: #333333;
+    text-align: center;
+}
+
+/* Таблица пользователей */
+.users-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.users-table th,
+.users-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #cccccc;
+}
+
+.users-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.users-table tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* Основной контейнер */
+.main-container {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 1rem auto;
+}
+
+/* Контейнер для чата */
+.chat-container {
+    flex: 3;
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Контейнер для таблицы пользователей */
+.users-container {
+    flex: 1;
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.users-container h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: #333333;
+    text-align: center;
+}
+
+/* Форма поиска */
+.search-form {
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.search-form input[type="text"] {
+    flex: 1;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    outline: none;
+}
+
+.search-form input[type="text"]:focus {
+    border-color: #007bff;
+}
+
+.search-form button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Таблица пользователей */
+.users-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.users-table th,
+.users-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #cccccc;
+}
+
+.users-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.users-table tr:hover {
+    background-color: #f9f9f9;
+}

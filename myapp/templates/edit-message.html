@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/feedback.css"> <!-- Используем тот же CSS -->
+    <title>Edit Message</title>
+</head>
+<body>
+    <!-- Меню сверху -->
+    <div class="menu">
+        <a href="/">Home</a>
+        <span>Welcome, {{.Username}}!</span> <!-- Отображаем имя пользователя -->
+        <a href="/logout">Logout</a>
+    </div>
+
+    <!-- Форма редактирования сообщения -->
+    <div class="chat-container">
+        <h1 class="chat-header">Edit Message</h1>
+        <form method="POST" action="/update-message/{{.MessageID}}">
+            <textarea name="message" required>{{.MessageText}}</textarea>
+            <button type="submit">Update</button>
+        </form>
+    </div>
+</body>
+</html>
